@@ -3,11 +3,11 @@
 I have a lot of file directories and I like being able to easily sort the stuff I download or make in as few keypresses as possible.
 I also have a lot of config files that I'm modifying all the time, and I like them to be easily accessible.
 
-Making bash aliases is one thing, but since I use bash, ranger the filemanager *and*  qutebrowser, all with directory specific commands, I want to be able to keep all of the aliases and shortcuts I have for one program consistent with the others.
+Making shell aliases is one thing, but since I use bash, ranger the filemanager *and*  qutebrowser, all with directory specific commands, I want to be able to keep all of the aliases and shortcuts I have for one program consistent with the others.
 
 ## Okay so what does this actually do?
 
-This script reads in a file with pairs of key sequences and corresponding directories and creates shortcuts for them in bash and ranger, along with custom download commands in qutebrowser.
+This script reads in a file with pairs of key sequences and corresponding directories and creates shortcuts for them in bash (or any shell) and ranger, along with custom download commands in qutebrowser.
 
 For example, you can assign the folder `~/Documents/` to `d`, and you get the following shortcuts:
 
@@ -33,6 +33,10 @@ Whenever you run `shortcuts.sh`, the script will read the combinations from `fol
 ```vim
 autocmd BufWritePost ~/.config/Scripts/folders,~/.config/Scripts/configs !bash ~/.config/Scripts/shortcuts.sh
 ```
+
+### Non-bash shells
+
+The script will automatically enable shortcuts for bash, but if you use zsh, or *any* typical shell with normal shell syntax, you can usually just throw `source ~/.bash_shortcuts` into your zshrc or other shell config and the script will work just as well for them.
 
 ## How it actually works
 
