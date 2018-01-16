@@ -14,7 +14,7 @@ For example, you can assign the folder `~/Documents/` to `d`, and you get the fo
 + `d` -- as a bash alias to cd to ~/Documents and show its contents
 + `;d` -- as a keyboard shortcut in qutebrowser to automatically select a file (with hints) and download it to that directory
 + And several particularly useful ranger commands:
-	+ `gs` -- "go to ~/Documents" as a ranger command to cd there
+	+ `gd` -- "go to ~/Documents" as a ranger command to cd there
 	+ `md` -- "move to ~/Documents" as a ranger command to move selected files to that directory
 	+ `Yd` -- "yank/copy to ~/Documents" a ranger command to *copy* the selected files to that directory
 	+ `td` -- "make a tab in ~/Documents" pretty much what it sounds like
@@ -23,6 +23,34 @@ This of course goes for *any* shortcut/directory pair you put in the `folders` f
 A similar function is there for consistent access to config/dotfiles or other commonly opened text documents: the script will also read from `configs` to map shortcuts in both bash and ranger to match.
 
 For example, I map `cfb` to my bashrc. This means it functions as an alias in bash, but also ranger will open the file if I press `cfb`.
+
+## Installation
+
+Put the files `folders`, `configs` and `shortcuts.sh` in `~/.config/Scripts/` (create it if not existing, and yes it's easy enough to change `shorcuts.sh` to refer to other file locations).
+
+Whenever you run `shortcuts.sh`, the script will read the combinations from `folders` and `configs` and add/update your shortcuts. If you're a vim-user, I recommend you putting the line below into your vimrc to have `shortcuts.sh` run automatically every time you save either file.
+
+```vim
+autocmd BufWritePost ~/.config/Scripts/folders,~/.config/Scripts/configs !bash ~/.config/Scripts/shortcuts.sh
+```
+
+## How it actually works
+
+`shorcuts.sh` will output the shortcuts to three files for each config in the places below:
+
++ `~/.bash_shortcuts`
++ `~/.config/ranger/shortcuts.conf`
++ `~/.config/qutebrowser/shortcuts.py`
+
+It will also add a line to each of the configs (if not already there) that will source these files. All of this is done automatically.
+
+E.g. the line `source ~/.bash_shortcuts` will be added to your bashrc. You can move this line around or add comments. To "uninstall" Shortcut Sync, just remove these lines. Whenever you run `shortcuts.sh` again, they will be added automatically.
+
+Remember that if there are binding conflicts, the lower mapping will win. So if you want the bindings here to take precedence over your personal aliases, keep these sourcing lines at the bottom. If you want your aliases to take precedence, move the sourcing line to the top.
+
+---
+
+# Old Complicated Readme for the Python File (only applies to `shortcuts.py`)
 
 ## Cool, so how do I install it?
 
