@@ -19,24 +19,31 @@ echo "# vim: filetype=sh" > $bash_shortcuts
 echo "# ranger shortcuts" > $ranger_shortcuts
 echo "# qutebrowser shortcuts" > $qute_shortcuts
 
+writeDirs() { echo "alias $1='cd $2 && ls -a'" >> $bash_shortcuts
+	echo "map g$1 cd $2" >> $ranger_shortcuts
+	echo "map t$1 tab_new $2" >> $ranger_shortcuts
+	echo "map m$1 shell mv %s $2" >> $ranger_shortcuts
+	echo "map Y$1 shell cp -r %s $2" >> $ranger_shortcuts
+	echo "config.bind(';$1', 'set downloads.location.directory $2 ;; hint links download')" >> $qute_shortcuts ;}
+
+writeConfs() {
+	echo "alias $1='vim $2'" >> $bash_shortcuts
+	echo "map $1 shell vim $2" >> $ranger_shortcuts ;}
+
 IFS=$'\n'
 set -f
 for line in $(cat "$folders"); do
+	line=$(echo $line | sed 's/#.*//')
 	key=$(echo $line | awk '{print $1}')
 	dir=$(echo $line | awk '{print $2}')
-	echo "alias $key='cd $dir && ls -a'" >> $bash_shortcuts
-	echo "map g$key cd $dir" >> $ranger_shortcuts
-	echo "map t$key tab_new $dir" >> $ranger_shortcuts
-	echo "map m$key shell mv %s $dir" >> $ranger_shortcuts
-	echo "map Y$key shell cp -r %s $dir" >> $ranger_shortcuts
-	echo "config.bind(';$key', 'set downloads.location.directory $dir ;; hint links download')" >> $qute_shortcuts
+	[ "$dir" == "" ] || writeDirs $key $dir
 done
 
 set -f
 for line in $(cat "$configs");
 do
+	line=$(echo $line | sed 's/#.*//')
 	short=$(echo $line | awk '{print $1}')
 	conf=$(echo $line | awk '{print $2}')
-	echo "alias $short='vim $conf'" >> $bash_shortcuts
-	echo "map $short shell vim $conf" >> $ranger_shortcuts
+	[ "$dir" == "" ] || writeConfs $short $conf
 done
