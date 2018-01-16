@@ -45,5 +45,5 @@ do
 	line=$(echo $line | sed 's/#.*//')
 	short=$(echo $line | awk '{print $1}')
 	conf=$(echo $line | awk '{print $2}')
-	[ "$dir" == "" ] || writeConfs $short $conf
+	[ "$conf" == "" ] || writeConfs $short $conf
 done
