@@ -5,9 +5,11 @@ I also have a lot of config files that I'm modifying all the time, and I like th
 
 Making shell aliases is one thing, but since I use bash, ranger the filemanager *and*  qutebrowser, all with directory specific commands, I want to be able to keep all of the aliases and shortcuts I have for one program consistent with the others.
 
+So I wrote this tiny `shortcuts.sh` script that generates consistent shortcuts aliases for all three programs based on lists of key/directory or key/config combos you can change whenever you want.
+
 ## Okay so what does this actually do?
 
-This script reads in a file with pairs of key sequences and corresponding directories and creates shortcuts for them in bash (or any shell) and ranger, along with custom download commands in qutebrowser.
+This script reads in a file (`folders`) with pairs of key sequences and corresponding directories and creates shortcuts for them in bash (or any shell) and ranger, along with custom download commands in qutebrowser.
 
 For example, you can assign the folder `~/Documents/` to `d`, and you get the following shortcuts:
 
@@ -34,6 +36,8 @@ Whenever you run `shortcuts.sh`, the script will read the combinations from `fol
 autocmd BufWritePost ~/.config/Scripts/folders,~/.config/Scripts/configs !bash ~/.config/Scripts/shortcuts.sh
 ```
 
+Notice by default you can edit the `folders` file and `configs` file with `cff` and `cfc` shortcuts, making making shortcuts even easier ;-).
+
 ### Non-bash shells
 
 The script will automatically enable shortcuts for bash, but if you use zsh, or *any* typical shell with normal shell syntax, you can usually just throw `source ~/.bash_shortcuts` into your zshrc or other shell config and the script will work just as well for them.
@@ -51,5 +55,3 @@ It will also add a line to each of the configs (if not already there) that will 
 E.g. the line `source ~/.bash_shortcuts` will be added to your bashrc. You can move this line around or add comments. To "uninstall" Shortcut Sync, just remove these lines. Whenever you run `shortcuts.sh` again, they will be added automatically.
 
 Remember that if there are binding conflicts, the lower mapping will win. So if you want the bindings here to take precedence over your personal aliases, keep these sourcing lines at the bottom. If you want your aliases to take precedence, move the sourcing line to the top.
-
----
