@@ -3,10 +3,10 @@ echo "Welcome to Shortcut Sync!"
 echo "Creating config files for qutebrowser and ranger in case they don't exist"
 mkdir -p ~/.config/qutebrowser
 mkdir -p ~/.config/ranger
-echo "creating '~/.config/Scripts' with symlinks to shortcuts, configs"
+echo "creating '~/.scripts' with symlinks to shortcuts, configs"
 mkdir -p ~/.config/Scripts
-ln -s "$PWD/folders" ~/.config/Scripts/folders"
-ln -s "$PWD/configs" ~/.config/Scripts/configs
+ln -s "$PWD/folders" ~/.scripts/folders"
+ln -s "$PWD/configs" ~/.scripts/configs
 echo "adding markup tags to config files"
 echo "# DO NOT DELETE LMAO\n# DO NOT DELETE LMAO" >> ~/.bashrc
 echo "# DO NOT DELETE LMAO\n# DO NOT DELETE LMAO" >> ~/.zshrc

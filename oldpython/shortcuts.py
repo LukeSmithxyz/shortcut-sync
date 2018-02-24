@@ -33,7 +33,7 @@ end = "# DO NOT DELETE LMAO"
 
 # First we open the list of folder shortcuts and go down each line adding each
 # in the required syntax to each of the three configs:
-with open(home+".config/Scripts/folders") as fold:
+with open(home+".scripts/folders") as fold:
     for line in csv.reader(fold, dialect="excel-tab"):
         # Adds the ranger go, tab, move and yank commands:
         ranger_shortcuts += ("map g" + line[0]
@@ -71,7 +71,7 @@ with open(home+".config/Scripts/folders") as fold:
 
 # Goes through the config file file and adds the shortcuts to both
 # bash_shortcuts and ranger.
-with open(home + ".config/Scripts/configs") as conf:
+with open(home + ".scripts/configs") as conf:
     for line in csv.reader(conf, dialect="excel-tab"):
         # fishshortcuts+=("alias "+line[0]+"=\"vim "+line[1]+"\"\n")
         # fishshortcuts+=("abbr --add "+line[0]+" \"vim "+line[1]+"\"\n")

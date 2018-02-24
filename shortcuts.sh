@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Config locations
-folders="$HOME/.config/Scripts/folders"
-configs="$HOME/.config/Scripts/configs"
+folders="~/.scripts/folders"
+configs="~/.scripts/configs"
 
 # Output locations
-bash_shortcuts="$HOME/.bash_shortcuts"
-ranger_shortcuts="$HOME/.config/ranger/shortcuts.conf"
-qute_shortcuts="$HOME/.config/qutebrowser/shortcuts.py"
+bash_shortcuts="~/.bash_shortcuts"
+ranger_shortcuts="~/.config/ranger/shortcuts.conf"
+qute_shortcuts="~/.config/qutebrowser/shortcuts.py"
 
 # Ensuring that output locations are properly sourced
 cat ~/.bashrc | grep "source ~/.bash_shortcuts" || echo "source ~/.bash_shortcuts" >> ~/.bashrc
