@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # Config locations
-folders="~/.scripts/folders"
-configs="~/.scripts/configs"
+folders="$HOME/.scripts/folders"
+configs="$HOME/.scripts/configs"
 
 # Output locations
-bash_shortcuts="~/.bash_shortcuts"
-ranger_shortcuts="~/.config/ranger/shortcuts.conf"
-qute_shortcuts="~/.config/qutebrowser/shortcuts.py"
+bash_shortcuts="$HOME/.bash_shortcuts"
+ranger_shortcuts="$HOME/.config/ranger/shortcuts.conf"
+qute_shortcuts="$HOME/.config/qutebrowser/shortcuts.py"
 
 # Ensuring that output locations are properly sourced
-cat ~/.bashrc | grep "source ~/.bash_shortcuts" || echo "source ~/.bash_shortcuts" >> ~/.bashrc
-cat ~/.config/ranger/rc.conf | grep "source ~/.config/ranger/shortcuts.conf" || echo "source ~/.config/ranger/shortcuts.conf" >> ~/.config/ranger/rc.conf
-cat ~/.config/qutebrowser/config.py | grep shortcuts.py || echo "config.source('shortcuts.py')" >> ~/.config/qutebrowser/config.py
+(cat $HOME/.bashrc | grep "source $HOME/.bash_shortcuts")>/dev/null || echo "source $HOME/.bash_shortcuts" >> $HOME/.bashrc
+(cat $HOME/.config/ranger/rc.conf | grep "source $HOME/.config/ranger/shortcuts.conf")>/dev/null || echo "source $HOME/.config/ranger/shortcuts.conf" >> $HOME/.config/ranger/rc.conf
+(cat $HOME/.config/qutebrowser/config.py | grep shortcuts.py || echo "config.source('shortcuts.py')")>/dev/null >> $HOME/.config/qutebrowser/config.py
 
 #Delete old shortcuts
 echo "# vim: filetype=sh" > $bash_shortcuts
