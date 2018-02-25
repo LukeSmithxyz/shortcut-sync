@@ -2,7 +2,7 @@
 
 ## Cool, so how do I install it?
 
-Throw all the files in `~/.config/Scripts/` (make the directory if it doesn't already exist). Run `runonce.sh` *once* to prepare you dotfiles. Then check `folders` and `configs` to add all the important, high-traffic files and directories you like to have shortcutted. Then just run `shortcuts.py`.
+Throw all the files in `~/.scripts/` (make the directory if it doesn't already exist). Run `runonce.sh` *once* to prepare you dotfiles. Then check `folders` and `configs` to add all the important, high-traffic files and directories you like to have shortcutted. Then just run `shortcuts.py`.
 
 ## How it works
 
@@ -24,5 +24,5 @@ One easy way to do this for vim users is having vim automatically run the script
 You can do this my simply adding the line below to your `vimrc`:
 
 ```vim
-autocmd BufWritePost ~/.config/Scripts/folders,~/.config/Scripts/configs !python ~/.config/Scripts/shortcuts.py
+autocmd BufWritePost ~/.scripts/folders,~/.scripts/configs !python ~/.scripts/shortcuts.py
 ```

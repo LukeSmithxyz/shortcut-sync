@@ -28,12 +28,12 @@ For example, I map `cfb` to my bashrc. This means it functions as an alias in ba
 
 ## Installation
 
-Put the files `folders`, `configs` and `shortcuts.sh` in `~/.config/Scripts/` (create it if not existing, and yes it's easy enough to change `shorcuts.sh` to refer to other file locations).
+Put the files `folders`, `configs` and `shortcuts.sh` in `~/.scripts/` (create it if not existing, and yes it's easy enough to change `shorcuts.sh` to refer to other file locations).
 
 Whenever you run `shortcuts.sh`, the script will read the combinations from `folders` and `configs` and add/update your shortcuts. If you're a vim-user, I recommend you putting the line below into your vimrc to have `shortcuts.sh` run automatically every time you save either file.
 
 ```vim
-autocmd BufWritePost ~/.config/Scripts/folders,~/.config/Scripts/configs !bash ~/.config/Scripts/shortcuts.sh
+autocmd BufWritePost ~/.scripts/folders,~/.scripts/configs !bash ~/.scripts/shortcuts.sh
 ```
 
 Notice by default you can edit the `folders` file and `configs` file with `cff` and `cfc` shortcuts, making making shortcuts even easier ;-).
