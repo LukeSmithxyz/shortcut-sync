@@ -12,7 +12,7 @@ qute_shortcuts="$HOME/.config/qutebrowser/shortcuts.py"
 # Ensuring that output locations are properly sourced
 (cat $HOME/.bashrc | grep "source $HOME/.bash_shortcuts")>/dev/null || echo "source $HOME/.bash_shortcuts" >> $HOME/.bashrc
 (cat $HOME/.config/ranger/rc.conf | grep "source $HOME/.config/ranger/shortcuts.conf")>/dev/null || echo "source $HOME/.config/ranger/shortcuts.conf" >> $HOME/.config/ranger/rc.conf
-(cat $HOME/.config/qutebrowser/config.py | grep shortcuts.py || echo "config.source('shortcuts.py')")>/dev/null >> $HOME/.config/qutebrowser/config.py
+(cat $HOME/.config/qutebrowser/config.py | grep "config.source('shortcuts.py')")>/dev/null || echo "config.source('shortcuts.py')" >> $HOME/.config/qutebrowser/config.py
 
 #Delete old shortcuts
 echo "# vim: filetype=sh" > $bash_shortcuts
