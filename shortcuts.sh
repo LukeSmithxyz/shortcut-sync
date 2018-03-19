@@ -22,8 +22,8 @@ echo "# qutebrowser shortcuts" > $qute_shortcuts
 writeDirs() { echo "alias $1='cd $2 && ls -a'" >> $bash_shortcuts
 	echo "map g$1 cd $2" >> $ranger_shortcuts
 	echo "map t$1 tab_new $2" >> $ranger_shortcuts
-	echo "map m$1 shell mv %s $2" >> $ranger_shortcuts
-	echo "map Y$1 shell cp -r %s $2" >> $ranger_shortcuts
+	echo "map m$1 shell mv -v %s $2" >> $ranger_shortcuts
+	echo "map Y$1 shell cp -rv %s $2" >> $ranger_shortcuts
 	echo "config.bind(';$1', 'set downloads.location.directory $2 ;; hint links download')" >> $qute_shortcuts ;}
 
 writeConfs() {
