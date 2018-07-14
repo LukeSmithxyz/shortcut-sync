@@ -12,6 +12,7 @@ eb	~/Documents/LaTeX/uni.bib
 cv	~/Documents/LaTeX/cv.tex
 cfp	~/.config/polybar/config
 cfd	~/.Xdefaults
+cfu	~/.config/newsboat/urls
 cfn	~/.config/newsboat/config
 cfA	~/.asoundrc
 cfmb	~/.ncmpcpp/bindings
