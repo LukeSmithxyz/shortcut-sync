@@ -5,12 +5,12 @@ folders="$HOME/.scripts/folders"
 configs="$HOME/.scripts/configs"
 
 # Output locations
-bash_shortcuts="$HOME/.bash_shortcuts"
+bash_shortcuts="$HOME/.shortcuts"
 ranger_shortcuts="$HOME/.config/ranger/shortcuts.conf"
 qute_shortcuts="$HOME/.config/qutebrowser/shortcuts.py"
 
 # Ensuring that output locations are properly sourced
-(cat $HOME/.bashrc | grep "source $HOME/.bash_shortcuts")>/dev/null || echo "source $HOME/.bash_shortcuts" >> $HOME/.bashrc
+(cat $HOME/.bashrc | grep "source ~/.shortcuts")>/dev/null || echo "source ~/.shortcuts" >> $HOME/.bashrc
 (cat $HOME/.config/ranger/rc.conf | grep "source $HOME/.config/ranger/shortcuts.conf")>/dev/null || echo "source $HOME/.config/ranger/shortcuts.conf" >> $HOME/.config/ranger/rc.conf
 (cat $HOME/.config/qutebrowser/config.py | grep "config.source('shortcuts.py')")>/dev/null || echo "config.source('shortcuts.py')" >> $HOME/.config/qutebrowser/config.py
 
