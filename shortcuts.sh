@@ -12,6 +12,10 @@ qute_shortcuts="$HOME/.config/qutebrowser/shortcuts.py"
 # Shell rc file (i.e. bash vs. zsh, etc.)
 shellrc="$HOME/.bashrc"
 
+# Download the shorcut files if not present.
+[[ ! -f $folders ]] && curl https://raw.githubusercontent.com/LukeSmithxyz/shortcut-sync/master/folders > "$folders"
+[[ ! -f $configs ]] && curl https://raw.githubusercontent.com/LukeSmithxyz/shortcut-sync/master/configs > "$configs"
+
 # Remove
 rm -f $shell_shortcuts $ranger_shortcuts $qute_shortcuts
 
