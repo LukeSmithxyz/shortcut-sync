@@ -1,3 +1,8 @@
+**NOTE: This repo is no longer active, but the files are there updated in my
+[voidrice](https://github.com/lukesmithxyz/voidrice).** This repo eventually
+became minimal, but integrated enough to become part of my main dotfiles. You
+now only need the one `shortcuts(.sh)` file for everything to work.
+
 # Luke's Shortcut Sync
 
 I have a lot of file directories and I like being able to easily sort the stuff I download or make in as few keypresses as possible.
